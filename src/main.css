@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Julius+Sans+One|Montserrat|Zilla+Slab&display=swap');
+
+/* * {
+  border: .2px lightgray solid;
+} */
+/* body {
+  font-family: 'Zilla Slab', serif;
+  background-color: #f1f2eb;
+} */
+body { padding-bottom: 70px; }
+h1 {
+  font-family: 'Julius Sans One', sans-serif;
+}
+.banner {
+  font-weight: bold;
+  font-size: 8vw;
+}
+#info {
+  padding: 20px;
+  font-size: 1.25rem;
+}
+.nav > li > a {
+  color: #C4D425;
+  text-transform: uppercase;
+  padding: 0 10px 0 10px;
+}
+h3 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.items {
+  font-family: 'Zilla Slab', serif;
+}
+.items > a {
+  color: #493843;
+}
+.items > a:hover {
+  color: #c4d425;
+  text-decoration: underline;
+}
+.btn-large {
+  margin: 20px;
+  border-radius: 4px;
+}
+.navbar {
+  background-color: #493843;
+  color: white;
+  padding-top: 10px;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-around;
+}
+.header {
+  background-color: #0c120c;
+  margin-bottom: 2rem;
+  padding: 16px 8px;
+  color: #f1f2eb;
+}
+.take-action {
+  clear: both;
+}
+#resources {
+  min-width: 200px;
+  min-height: 200px;
+  background-color: ##493843;
+}
+#story {
+  font-family: 'Zilla Slab', serif;
+  font-size: 1.25rem;
+}
