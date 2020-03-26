@@ -23,7 +23,7 @@ export default class Item extends Component{
     this.getItem();
   }
   getItem = () =>{
-    fetch('https://lit-reef-53457.herokuapp.com/items/' + this.props.match.params.id)
+    fetch('http://localhost:2222/items/' + this.props.match.params.id)
     .then(response => response.json())
     .then(json =>{
       this.setState({item: json})
@@ -31,13 +31,13 @@ export default class Item extends Component{
     .catch(error => console.error(error))
   }
   getItems = () =>{
-    fetch('https://lit-reef-53457.herokuapp.com/items')
+    fetch('http://localhost:2222/items')
     .then(response => response.json())
     .then(json => this.setState({items: json}))
     .catch(error => console.error(error))
   }
   deleteItem = (id) =>{
-    fetch("https://lit-reef-53457.herokuapp.com/items/" + id,
+    fetch("http://localhost:2222/items/" + id,
       {
         method: "DELETE"
       })

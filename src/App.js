@@ -13,14 +13,14 @@ export default class App extends Component {
     console.log("got em")
   }
   getItems = () =>{
-    fetch('https://lit-reef-53457.herokuapp.com/items')
+    fetch('http://localhost:2222/items')
     .then(response => response.json())
     .then(json => this.setState({items: json}))
     .catch(error => console.error(error))
   }
 
   deleteItem = (id, i) =>{
-    fetch("https://lit-reef-53457.herokuapp.com/items/" + id,
+    fetch("http://localhost:2222/items/" + id,
       {
         method: "DELETE"
       })
