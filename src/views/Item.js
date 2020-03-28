@@ -42,7 +42,7 @@ export default class Item extends Component{
         method: "DELETE"
       })
       .then(() => {
-        fetch('https://lit-reef-53457.herokuapp.com/items')
+        fetch('http://localhost:2222/items')
           .then(response => response.json())
           .then(window.location.replace('/'))
       })
