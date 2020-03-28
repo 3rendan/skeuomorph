@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class NewItems extends Component {
   state = {
-    items: [{}],
+    items: {}
   }
   componentDidMount() {
     this.getItems();
@@ -35,13 +35,10 @@ class NewItems extends Component {
   render () {
     return (
       <div className='container'>
-          { Object.keys(this.state.items[0])).map((key, i) =>
-            return (
-              <div key={key.id} className="items text-center">
-                <h1>{ key.value }</h1>
-              </div>
-            )
-          })}
+        <div className="contact-clean">
+          <h1> New Item </h1>
+          {console.log(Object.keys(this.state.items))}
+        </div>
       </div>
     )
   }
