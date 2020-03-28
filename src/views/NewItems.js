@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class NewItems extends Component {
   state = {
-    items: {}
+    items: [{}],
+    item: {}
   }
   componentDidMount() {
     this.getItems();
@@ -37,7 +38,7 @@ class NewItems extends Component {
       <div className='container'>
         <div className="contact-clean">
           <h1> New Item </h1>
-          {console.log(Object.keys(this.state.items))}
+          {console.log(Object.keys(this.state.items[0]))}
         </div>
       </div>
     )
