@@ -34,11 +34,12 @@ class NewItems extends Component {
  }
 
   render () {
+    const openDoors = Object.keys(this.state.items[0]);
     return (
       <div className='container'>
         <div className="contact-clean">
           <h1> New Item </h1>
-          {console.log(Object.keys(this.state.items[0]))}
+          <h2>{ openDoors } </h2>
         </div>
       </div>
     )
