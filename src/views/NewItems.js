@@ -39,7 +39,12 @@ class NewItems extends Component {
       <div className='container'>
         <div className="contact-clean">
           <h1> New Item </h1>
-          <h2>{ openDoors } </h2>
+          { openDoors.map((key, i) =>{
+            return(
+              <div>
+                <h2>{ key }</h2><br/>
+              </div>
+          )}) }
         </div>
       </div>
     )
