@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 class NewItems extends Component {
   state = {
     items: [{}],
-    item: {}
+    item: {},
+    formInputs: [{}]
   }
   componentDidMount() {
     this.getItems();
@@ -38,15 +39,27 @@ class NewItems extends Component {
     return (
       <div className='container'>
         <div className="contact-clean">
+        <form onSubmit={this.handleSubmit}>
           <h1> New Item </h1>
           { openDoors.map((key, i) =>{
             return(
-              <div>
-                <h2>{ key }</h2><br/>
+              <div className="form-group">
+              <label htmlFor={key} >{key}: </label>
+              <input
+                type="text"
+                id={key}
+                placeholder={ key }
+                value={this.state.formInputs.key}
+                onChange={this.handleChange}
+              />
               </div>
           )}) }
-        </div>
+          <div className="form-group">
+              <input type="submit" className="submit btn btn-warning" />
+          </div>
+        </form>
       </div>
+    </div>
     )
   }
 }
