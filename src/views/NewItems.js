@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 class NewItems extends Component {
   state = {
     items: [{}],
     item: {},
-    formInputs: [{}]
+    formInputs: {}
   }
   componentDidMount() {
     this.getItems();
+    this.getInputs();
   }
   getItems = () =>{
     fetch('http://localhost:2222/items')
@@ -16,12 +18,18 @@ class NewItems extends Component {
     .then(json => this.setState({items: json}))
     .catch(error => console.error(error))
   }
+  getInputs = () =>{
+    fetch('http://localhost:2222/items')
+    .then(response => response.json())
+    .then(json => this.setState({formInput: Object.keys(this.state.items[0])}))
+    .catch(error => console.error(error))
+  }
   handleChange = (event) => {
     const updateInput = Object.assign( this.state.formInputs, { [event.target.id]: event.target.value })
     this.setState(updateInput)
   }
   handleSubmit  = (event) =>{
-    event.preventDefault();
+    // event.preventDefault();
     fetch("http://localhost:2222/items", {
       body: JSON.stringify(this.state.formInputs),
       method: "POST",
@@ -43,7 +51,7 @@ class NewItems extends Component {
           <h1> New Item </h1>
           { openDoors.map((key, i) =>{
             return(
-              <div className="form-group">
+              <div key={key} className="form-group">
               <label htmlFor={key} >{key}: </label>
               <input
                 type="text"

@@ -9,6 +9,7 @@ let tombstone = {
 
 export default function  (props) {
   return (
+
       <div className='col-sm-7' style={tombstone} >
         <ul className="nav nav-tabs nav-justified">
             <li className='nav-item'><a href="#info" data-toggle="tab" className="nav-link active">INFO</a></li>
@@ -18,7 +19,7 @@ export default function  (props) {
       <div className="tab-content">
           <div role="tabpanel"  className="tab-pane active"  id='info'>
             <h3>Title: { props.item.title }</h3><br/>
-            <h3>Author: { props.item.author }</h3><br />
+            <h3>Author: { props.item.creator }</h3><br />
             <p className='text-center'>The accession number is { props.item.accession_number }</p><br />
           </div>
           <div role="tabpanel" className="tab-pane" id="story" hidden>

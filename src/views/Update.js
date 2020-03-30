@@ -16,7 +16,7 @@ export default class Update extends Component{
     this.getItem();
   }
   getItem = () =>{
-    fetch('https://lit-reef-53457.herokuapp.com/items/' + this.props.match.params.id)
+    fetch('http://localhost:2222/items/' + this.props.match.params.id)
     .then(response => response.json())
     .then(json =>{
       this.setState({item: json})
@@ -38,7 +38,7 @@ export default class Update extends Component{
     if(formData === null){
       window.location.replace('/items');
     } else {
-      fetch(`https://lit-reef-53457.herokuapp.com/items/` + this.state.item.id, {
+      fetch(`http://localhost:2222/items/` + this.state.item.id, {
         body: JSON.stringify(formData),
         method: 'PUT',
         headers: {
@@ -68,8 +68,8 @@ export default class Update extends Component{
             <label htmlFor="author">Author: </label>
             <input
               type="text"
-              id="author"
-              placeholder={this.state.item.author}
+              id="creator"
+              placeholder={this.state.item.creator}
               onChange={this.handleChange}
             /><br/>
             <label htmlFor="accession_number">Accession Number: </label>
