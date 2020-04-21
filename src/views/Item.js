@@ -52,6 +52,9 @@ export default class Item extends Component{
     <div className='container'>
     <div key={this.state.item.id} className="items">
     <div className='row'>
+      <h3>{ this.state.item.title }</h3>
+    </div>
+    <div className='row'>
       <Metadata item={this.state.item}/>
       <HalfImage item={ this.state.item }/>
     </div>

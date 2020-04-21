@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 
+const formInputs = [];
 
 class NewItems extends Component {
   state = {
     items: [{}],
     item: {},
-    formInputs: {}
+    formInputs: [],
+    formInput: {}
   }
   componentDidMount() {
     this.getItems();
@@ -21,9 +23,12 @@ class NewItems extends Component {
   getInputs = () =>{
     fetch('http://localhost:2222/items')
     .then(response => response.json())
-    .then(json => this.setState({formInput: Object.keys(this.state.items[0])}))
+    .then(data => data.filter(formInput => {
+      (formInput.typeof === "string") && formInputs.push(formInput);
+    })
+    .then(formInput => this.setState({formInput: Object.keys(this.state.items[0])}))
     .catch(error => console.error(error))
-  }
+  )}
   handleChange = (event) => {
     const updateInput = Object.assign( this.state.formInputs, { [event.target.id]: event.target.value })
     this.setState(updateInput)
@@ -44,29 +49,12 @@ class NewItems extends Component {
 
   render () {
     const openDoors = Object.keys(this.state.items[0]);
+    const fieldsToEnter = openDoors.filter(openDoor =>{
+      return openDoor.typeof === "string";
+    });
     return (
       <div className='container'>
-        <div className="contact-clean">
-        <form onSubmit={this.handleSubmit}>
-          <h1> New Item </h1>
-          { openDoors.map((key, i) =>{
-            return(
-              <div key={key} className="form-group">
-              <label htmlFor={key} >{key}: </label>
-              <input
-                type="text"
-                id={key}
-                placeholder={ key }
-                value={this.state.formInputs.key}
-                onChange={this.handleChange}
-              />
-              </div>
-          )}) }
-          <div className="form-group">
-              <input type="submit" className="submit btn btn-warning" />
-          </div>
-        </form>
-      </div>
+      {console.log(formInputs)}
     </div>
     )
   }

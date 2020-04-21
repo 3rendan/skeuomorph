@@ -18,12 +18,25 @@ export default function  (props) {
         </ul>
       <div className="tab-content">
           <div role="tabpanel"  className="tab-pane active"  id='info'>
-            <h3>Title: { props.item.title }</h3><br/>
-            <h3>Author: { props.item.creator }</h3><br />
-            <p className='text-center'>The accession number is { props.item.accession_number }</p><br />
+            <ul>
+              <li>Author: { props.item.creator }</li>
+              <li>The accession number is { props.item.identifier }</li>
+              <li>Contributor: { props.item.contributor }</li>
+              <li>Coverage: { props.item.coverage }</li>
+              <li>Date: { props.item.date }</li>
+              <li>Format: { props.item.format }</li>
+              <li>Language: { props.item.language }</li>
+              <li>Publisher: { props.item.publisher }</li>
+              <li>Relation: { props.item.relation }</li>
+              <li>Rights: { props.item.rights }</li>
+              <li>Source: { props.item.source }</li>
+              <li>Subject: { props.item.subject }</li>
+              <li>Type: { props.item.item_type }</li>
+            </ul>
+
           </div>
           <div role="tabpanel" className="tab-pane" id="story" hidden>
-            <p>{ props.item.abstract }</p>
+            <p>{ props.item.description }</p>
           </div>
           <div role="tabpanel" className="tab-pane" id="resources" hidden>
           </div>
