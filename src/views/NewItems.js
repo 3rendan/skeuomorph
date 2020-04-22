@@ -44,9 +44,9 @@ class NewItems extends Component {
  }
 
   render () {
-    const openDoors = Object.keys(this.state.items[0]);
-    var dcKeys = openDoors.filter(openDoor => (openDoor.value === typeof "stringj"))
-    console.log(dcKeys)
+    const openDoors = this.state.items[0].title;
+    // var dcKeys = openDoors.filter(openDoor => (openDoor.value === typeof ))
+    // console.log(dcKeys);
     console.log(openDoors)
     return (
       <div className='container'>
