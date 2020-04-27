@@ -44,16 +44,29 @@ class NewItems extends Component {
  }
 
   render () {
-    const openDoors = this.state.items[0].title;
-    // var dcKeys = openDoors.filter(openDoor => (openDoor.value === typeof ))
-    // console.log(dcKeys);
+    const openDoors = Object.keys(this.state.items[0]);
     console.log(openDoors)
+    const dcKeys = openDoors.filter(openDoor => (!openDoor.endsWith('d') && !openDoor.includes('_')))
+    console.log(dcKeys);
+
     return (
       <div className='container'>
         <div className="contact-clean">
         <form onSubmit={this.handleSubmit}>
           <h1> New Item </h1>
-
+          { dcKeys.map((key, i) =>{
+            return(
+              <div key={key} className="form-group">
+              <label htmlFor={key} >{key}: </label>
+              <input
+                type="text"
+                id={key}
+                placeholder={ key }
+                value={this.state.formInputs.key}
+                onChange={this.handleChange}
+              />
+              </div>
+          )}) }
           <div className="form-group">
               <input type="submit" className="submit btn btn-warning" />
           </div>
