@@ -54,13 +54,19 @@ class NewItems extends Component {
         <div className="contact-clean">
         <form onSubmit={this.handleSubmit}>
           <h1> New Item </h1>
-          { dcKeys.map(key => {
-            return (
-              <Fields value={key}) />
-            )}
-          <div className="form-group">
-              <input type="submit" className="submit btn btn-warning" />
-          </div>
+          { dcKeys.map((key, i) =>{
+           return(
+             <div key={key} className="form-group">
+             <label htmlFor={key} >{key}: </label>
+             <input
+               type="text"
+               id={key}
+               placeholder={ key }
+               value={this.state.formInputs.key}
+               onChange={this.handleChange}
+             />
+             </div>
+         )}) }
         </form>
       </div>
     </div>
