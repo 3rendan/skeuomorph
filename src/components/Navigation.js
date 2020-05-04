@@ -21,7 +21,3 @@ export default function Navigation () {
     </nav>
   )
 }
-
-Navigation.propTypes = {
-
-}
