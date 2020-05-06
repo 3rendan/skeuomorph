@@ -10,7 +10,7 @@ import App from './App.js';
 import Header from "./components/Header.js";
 import Navigation from "./components/Navigation.js";
 import About from "./components/About.js";
-import Item from "./views/Fitem.js";
+import Item from "./views/Item.js";
 import Items from "./views/Items.js";
 import NewItems from "./views/NewItems.js";
 import Update from "./views/Update.js";
