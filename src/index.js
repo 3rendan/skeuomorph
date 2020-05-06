@@ -10,7 +10,8 @@ import App from './App.js';
 import Header from "./components/Header.js";
 import Navigation from "./components/Navigation.js";
 import About from "./components/About.js";
-import Item from "./views/Item.js";
+import Item from "./views/Fitem.js";
+import Items from "./views/Items.js";
 import NewItems from "./views/NewItems.js";
 import Update from "./views/Update.js";
 // import indexRoutes from "./routes/indexRoutes.js";
@@ -26,7 +27,7 @@ ReactDOM.render(
     <Navigation />
     <Route path='/' exact strict component={ App } />
     <Route path='/about' exact strict component={ About } />
-    <Route path='/items' exact strict component={ App } />
+    <Route path='/items' exact strict component={ Items } />
     <Route path='/new-items' exact strict component={ NewItems } />
     <Route path='/item/:id' exact strict component={ Item } />
     <Route path='/update/:id' exact strict component={ Update } />
