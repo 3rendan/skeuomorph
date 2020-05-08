@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 // import { initialState } from './context/GlobalState'
-import { useItems } from '../context/useItems'
+import { useItems } from '../Effects'
 import 'bootstrap/dist/css/bootstrap.css';
 
 let purp = {
@@ -15,8 +15,7 @@ let green = {
   marginBottom: '40px',
 }
 const Items =() => {
-  const [ items, setItems ] = useItems();
-  console.log(items)
+  useItems();
   return (
     <div>
     { items.map(item => {

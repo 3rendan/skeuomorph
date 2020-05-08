@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+// import { initialState } from './context/GlobalState'
+// import { useItems } from '../context/useItems'
 import HalfImage from "../components/HalfImage.js";
 import Metadata from "../components/Metadata.js";
+import { useItem } from '../Effects'
 import 'bootstrap/dist/css/bootstrap.css';
 
 let purp = {
@@ -14,49 +17,17 @@ let green = {
   color: '#fff',
 }
 
-
-export default class Item extends Component{
-  state = {
-    item: {}
-  }
-  componentDidMount (){
-    this.getItem();
-  }
-  getItem = () =>{
-    fetch('http://localhost:2222/items/' + this.props.match.params.id)
-    .then(response => response.json())
-    .then(json =>{
-      this.setState({item: json})
-      console.log(json)})
-    .catch(error => console.error(error))
-  }
-  getItems = () =>{
-    fetch('http://localhost:2222/items')
-    .then(response => response.json())
-    .then(json => this.setState({items: json}))
-    .catch(error => console.error(error))
-  }
-  deleteItem = (id) =>{
-    fetch("http://localhost:2222/items/" + id,
-      {
-        method: "DELETE"
-      })
-      .then(() => {
-        fetch('http://localhost:2222/items')
-          .then(response => response.json())
-          .then(window.location.replace('/'))
-      })
-    }
-  render (){
+const Item = () => {
+  useItem();
   return (
     <div className='container'>
-    <div key={this.state.item.id} className="items">
+    <div key={item.id} className="items">
     <div className='row'>
-      <h3>{ this.state.item.title }</h3>
+      <h3>{ item.title }</h3>
     </div>
     <div className='row'>
-      <Metadata item={this.state.item}/>
-      <HalfImage item={ this.state.item }/>
+      <Metadata item={item}/>
+      <HalfImage item={ item }/>
     </div>
     <div className="row">
       <div className="col-sm-7">
@@ -65,12 +36,13 @@ export default class Item extends Component{
         </div>
       </div>
       <div className='col-sm-5 take-action'>
-        <button style={green} className="btn-large btn-warning"><Link to={() =>`/update/${this.state.item.id}`}> UPDATE </Link></button>
-        <button style={purp} className="btn-large btn-danger" onClick={() => this.deleteItem(this.state.item.id)}> DELETE </button>
+        <button style={green} className="btn-large btn-warning"><Link to={() =>`/update/${item.id}`}> UPDATE </Link></button>
+        <button style={purp} className="btn-large btn-danger" onClick={() => this.deleteItem(item.id)}> DELETE </button>
       </div>
     </div>
   </div>
   </div>
   )
 }
-}
+
+export default Item

@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useReducer} from 'react';
+import React, { createContext, useEffect, useState, useReducer} from 'react';
 import AppReducer from './AppReducer';
 
 // initial this.state
-export const useItems = () => {
+const initialState = () => {
   const [items, setItems] = useState([]);
   useEffect(() =>{
     fetch('http://localhost:2222/items')
@@ -15,13 +15,13 @@ export const useItems = () => {
 
 
 // create createContext
-export const GlobalContext = createContext(useItems);
+export const GlobalContext = createContext(initialState);
 
 
 
 // provider component
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, useItems());
+  const [state, dispatch] = useReducer(AppReducer, initialState);
   // actions
   function deleteItem(id) {
     dispatch({

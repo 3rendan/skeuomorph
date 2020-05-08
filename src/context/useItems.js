@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 export const useItems = () => {
   const items = useEffect(() =>{
