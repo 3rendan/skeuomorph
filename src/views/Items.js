@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+// import { initialState } from './context/GlobalState'
+import { useItems } from '../context/useItems'
 import 'bootstrap/dist/css/bootstrap.css';
 
 let purp = {
@@ -12,14 +14,9 @@ let green = {
   border: '.5px #fff solid',
   marginBottom: '40px',
 }
-function Items() {
-  const [items, setItems] = useState([]);
-  useEffect(() =>{
-    fetch('http://localhost:2222/items')
-    .then(response => response.json())
-    .then(data => setItems(data))
-    .catch(error => console.error(error))
-  }, [])
+const Items =() => {
+  const [ items, setItems ] = useItems();
+  console.log(items)
   return (
     <div>
     { items.map(item => {
