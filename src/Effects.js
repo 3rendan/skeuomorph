@@ -8,13 +8,15 @@ export const useItems = () => {
     .then(data => setItems(data))
     .catch(error => console.error(error))
   }, [])
+  return items;
 }
-export const useItem = () => {
+export const useItem = (param) => {
   const [item, setItem] = useState([]);
   useEffect(() =>{
-    fetch('http://localhost:2222/items' + this.props.match.params.id)
+    fetch('http://localhost:2222/items/' + param)
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => setItem(data))
     .catch(error => console.error(error))
   }, [])
+  return item;
 }

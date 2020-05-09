@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 // import { initialState } from './context/GlobalState'
 // import { useItems } from '../context/useItems'
@@ -17,8 +17,9 @@ let green = {
   color: '#fff',
 }
 
-const Item = () => {
-  useItem();
+const Item = (id) => {
+  const item = useItem(id);
+  console.log(item)
   return (
     <div className='container'>
     <div key={item.id} className="items">
@@ -26,7 +27,7 @@ const Item = () => {
       <h3>{ item.title }</h3>
     </div>
     <div className='row'>
-      <Metadata item={item}/>
+      <Metadata item={ item }/>
       <HalfImage item={ item }/>
     </div>
     <div className="row">

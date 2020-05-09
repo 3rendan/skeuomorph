@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
 // import { initialState } from './context/GlobalState'
 import { useItems } from '../Effects'
@@ -15,7 +15,7 @@ let green = {
   marginBottom: '40px',
 }
 const Items =() => {
-  useItems();
+  const items = useItems();
   return (
     <div>
     { items.map(item => {
