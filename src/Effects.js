@@ -13,7 +13,7 @@ export const useItems = () => {
 export const useItem = (param) => {
   const [item, setItem] = useState([]);
   useEffect(() =>{
-    fetch('http://localhost:2222/items/' + param)
+    fetch('http://localhost:2222/item/' + param)
     .then(response => response.json())
     .then(data => setItem(data))
     .catch(error => console.error(error))

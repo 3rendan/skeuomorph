@@ -1,5 +1,6 @@
 import React from 'react';
-// import { useItem } from '../Effects'
+import { useItem } from '../Effects'
+import Item from '../views/Item'
 
 let tombstone = {
   // backgroundColor: '#b6b6b6',
@@ -8,8 +9,9 @@ let tombstone = {
   padding: "5px",
 }
 
-const Metadata = (item) =>{
-  // const item = useItem();
+const Metadata = (props) =>{
+  // console.log(props)
+  const item = useItem(props);
   return (
       <div className='col-sm-7' style={tombstone} >
         <ul className="nav nav-tabs nav-justified">
@@ -37,7 +39,7 @@ const Metadata = (item) =>{
 
           </div>
           <div role="tabpanel" className="tab-pane" id="story" hidden>
-            <p>{ item.description }</p>
+            <p>{ props.description }</p>
           </div>
           <div role="tabpanel" className="tab-pane" id="resources" hidden>
           </div>
