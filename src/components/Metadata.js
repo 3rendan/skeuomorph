@@ -9,9 +9,8 @@ let tombstone = {
   padding: "5px",
 }
 
-const Metadata = (props) =>{
-  // console.log(props)
-  const item = useItem(props);
+const Metadata = () =>{
+  const item = useItem();
   return (
       <div className='col-sm-7' style={tombstone} >
         <ul className="nav nav-tabs nav-justified">
@@ -21,25 +20,12 @@ const Metadata = (props) =>{
         </ul>
       <div className="tab-content">
           <div role="tabpanel"  className="tab-pane active"  id='info'>
-            <ul>
-              <li>Author: { item.creator }</li>
-              <li>The accession number is { item.identifier }</li>
-              <li>Contributor: { item.contributor }</li>
-              <li>Coverage: { item.coverage }</li>
-              <li>Date: { item.date }</li>
-              <li>Format: { item.format }</li>
-              <li>Language: { item.language }</li>
-              <li>Publisher: { item.publisher }</li>
-              <li>Relation: { item.relation }</li>
-              <li>Rights: { item.rights }</li>
-              <li>Source: { item.source }</li>
-              <li>Subject: { item.subject }</li>
-              <li>Type: { item.item_type }</li>
-            </ul>
+            <p> {item.title} </p>
+
 
           </div>
           <div role="tabpanel" className="tab-pane" id="story" hidden>
-            <p>{ props.description }</p>
+            <p>{ item.description }</p>
           </div>
           <div role="tabpanel" className="tab-pane" id="resources" hidden>
           </div>

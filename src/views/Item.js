@@ -17,18 +17,17 @@ let green = {
   color: '#fff',
 }
 
-const Item = (props) => {
-  // console.log(props)
-  const item = useItem(props);
+const Item = () => {
+  const item = useItem();
   console.log(item)
   return (
     <div className='container'>
     <div key={item.id} className="items">
+    <h3>{ item.title }</h3>
     <div className='row'>
-      <h3>{ item.title }</h3>
     </div>
     <div className='row'>
-      <Metadata props={ item.id }/>
+      <Metadata item={ item }/>
       <HalfImage item={ item }/>
     </div>
     <div className="row">
