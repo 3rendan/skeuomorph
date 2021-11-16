@@ -27,7 +27,7 @@ const Item = () => {
     <div className='row'>
     </div>
     <div className='row'>
-      <Metadata item={ item }/>
+      <Metadata/>
       <HalfImage item={ item }/>
     </div>
     <div className="row">

@@ -10,10 +10,10 @@ export const useItems = () => {
   }, [])
   return items;
 }
-export const useItem = () => {
+export const useItem = (param) => {
   const [item, setItem] = useState([]);
   useEffect(() =>{
-    fetch('http://localhost:2222/items/' + 3)
+    fetch('http://localhost:2222/items/' + 3) // why + 3
     .then(response => response.json())
     .then(data => setItem(data))
     .catch(error => console.error(error))

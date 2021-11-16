@@ -9,8 +9,7 @@ let tombstone = {
   padding: "5px",
 }
 
-const Metadata = () =>{
-  const item = useItem();
+const Metadata = (item) =>{
   return (
       <div className='col-sm-7' style={tombstone} >
         <ul className="nav nav-tabs nav-justified">
